@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Control de inventario</title>
+  <link rel="stylesheet" href="estilos.css">
+ 
+ 
+
+</head>
+<body>
+  <button id="boton-prueba" type="button">Probar conexión</button><p id="mensaje-prueba"></p>
+  <header class="cabecera">
+    <h1>Control de inventario</h1>
+    <p>Cargá productos, buscá y controlá tu stock.</p>
+  </header>
+ 
+  <main class="contenedor">
+    <section class="panel" aria-labelledby="t-alta">
+      <h2 id="t-alta">Agregar producto</h2>
+      <form id="form-alta" class="grilla-form">
+        <label>Nombre
+          <input id="nombre" required maxlength="60" placeholder="Ej: Teclado mecánico">
+        </label>
+        <label>Categoría
+          <input id="categoria" required maxlength="40" placeholder="Ej: Periféricos" list="lista-categorias">
+          <datalist id="lista-categorias"></datalist>
+        </label>
+        <label>Precio
+          <input id="precio" type="number" min="0" step="0.01" required placeholder="0.00">
+        </label>
+        <label>Stock
+          <input id="stock" type="number" min="0" step="1" required placeholder="0">
+        </label>
+        <button id="boton-agregar" type="submit" class="btn">Agregar producto</button>
+      </form>
+    </section>
+ 
+    <section class="panel" aria-labelledby="t-filtros">
+      <h2 id="t-filtros">Buscar productos</h2>
+      <div class="grilla-form" id="filtros">
+        <label>Nombre
+          <input id="f-nombre" type="search" placeholder="Buscar por nombre">
+        </label>
+        <label>Categoría
+          <select id="f-categoria"><option value="">Todas</option></select>
+        </label>
+        <label>Stock mínimo
+          <input id="f-stock" type="number" min="0" step="1" placeholder="0">
+        </label>
+        <label>Precio máximo
+          <input id="f-precio" type="number" min="0" step="0.01" placeholder="Sin límite">
+        </label>
+        <button type="button" id="limpiar" class="btn btn-sec">Limpiar filtros</button>
+      </div>
+    </section>
+ 
+    <section class="resumen" aria-label="Resumen de inventario">
+      <div><span id="r-productos">0</span><small>Productos</small></div>
+      <div><span id="r-unidades">0</span><small>Unidades en stock</small></div>
+      <div><span id="r-valor">$0</span><small>Valor del inventario</small></div>
+      <div class="alerta"><span id="r-agotados">0</span><small>Sin stock</small></div>
+    </section>
+ 
+    <section aria-labelledby="t-lista">
+      <h2 id="t-lista">Productos <small id="contador"></small></h2>
+      <div id="lista" class="lista"></div>
+    </section>
+  </main>
+ 
+  <script src="index.js"></script>
+  <script src="dist/index.js" defer></script>
+</body>
+</html>
+ 
