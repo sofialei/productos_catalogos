@@ -14,3 +14,11 @@ if (botonAgregar !== null && mensajeAgregar !== null) {
     });
 }
 
+const buscador = document.querySelector<HTMLInputElement>("#f-nombre");
+if (buscador !== null && mensajePrueba !== null) {
+    buscador.addEventListener("input", () => {
+      mensajePrueba.textContent = "Estás buscando: " + buscador.value;
+    });
+  }
+  
+  
