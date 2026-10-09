@@ -74,3 +74,29 @@ if (lista !== null) {
     };
     mostrarProductos(); // se dibujan al cargar la página
 }
+const resumenProductos = document.querySelector("#r-productos");
+const resumenUnidades = document.querySelector("#r-unidades");
+const resumenValor = document.querySelector("#r-valor");
+const resumenAgotados = document.querySelector("#r-agotados");
+const contador = document.querySelector("#contador");
+if (resumenProductos !== null && resumenUnidades !== null &&
+    resumenValor !== null && resumenAgotados !== null && contador !== null) {
+    const mostrarResumen = () => {
+        let unidades = 0;
+        let valor = 0;
+        let agotados = 0;
+        for (const p of productos) {
+            unidades += p.stock;
+            valor += p.precio * p.stock;
+            if (p.stock === 0) {
+                agotados++;
+            }
+        }
+        resumenProductos.textContent = String(productos.length);
+        resumenUnidades.textContent = String(unidades);
+        resumenValor.textContent = "$" + valor.toLocaleString("es-AR");
+        resumenAgotados.textContent = String(agotados);
+        contador.textContent = "(" + productos.length + " de " + productos.length + ")";
+    };
+    mostrarResumen(); // se calcula al cargar la página
+}
