@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap");
+
+:root {
+  --blush: #fbeeee;
+  --papel: #fffaf7;
+  --rosa: #e8a5b3;
+  --rosa-polvo: #c9707f;
+  --ciruela: #4a2233;
+  --ciruela-osc: #33151f;
+  --tinta: #4a3540;
+  --suave: #8f7480;
+  --oro: #c9a27a;
+  --linea: #ecd3d6;
+  --ok: #4f8a6d;
+  --bajo: #c48524;
+  --agotado: #a8324f;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--tinta);
+  font-family: "Gowun Dodum", "Malgun Gothic", "Apple SD Gothic Neo", system-ui, sans-serif;
+  line-height: 1.6;
+  background:
+    radial-gradient(ellipse at 50% 0%, #fff7f5 0, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, #f6d9dd 0, transparent 55%),
+    var(--blush);
+  background-attachment: fixed;
+}
+
+/* Portada tipo título de serie */
+.cabecera {
+  background: linear-gradient(180deg, var(--ciruela-osc), var(--ciruela));
+  color: #fdeaec;
+  text-align: center;
+  padding: 3.2rem 1.25rem 2.6rem;
+  border-bottom: 3px solid var(--oro);
+  position: relative;
+}
+.cabecera::before, .cabecera::after {
+  content: ""; display: block; width: 64px; height: 1px; background: var(--oro); margin: 0 auto;
+}
+.cabecera::before { margin-bottom: 1.4rem; }
+.cabecera::after { margin-top: 1.4rem; }
+.cabecera h1 {
+  margin: 0;
+  font-family: "Gowun Batang", Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 6vw, 3.2rem);
+  letter-spacing: .12em;
+}
+.cabecera p { margin: .6rem 0 0; color: #e9c7cd; letter-spacing: .06em; }
+
+.contenedor { max-width: 960px; margin: 0 auto; padding: 2rem 1.25rem 3.5rem; display: grid; gap: 1.75rem; }
+
+h2 {
+  display: flex; align-items: center; gap: .9rem;
+  margin: 0 0 1.1rem;
+  font-family: "Gowun Batang", Georgia, serif; font-weight: 700; font-size: 1.3rem;
+  color: var(--ciruela);
+}
+h2::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--oro), transparent); }
+h2 small { font-family: "Gowun Dodum", sans-serif; font-weight: 400; font-size: .9rem; color: var(--suave); order: 2; }
+h2 small { margin-left: 0; }
+
+.panel {
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-radius: 6px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(74, 34, 51, .07);
+}
+
+.grilla-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1.1rem; align-items: end; }
+label { display: grid; gap: .35rem; font-size: .92rem; color: var(--ciruela); }
+input, select {
+  font: inherit; padding: .6rem .8rem; width: 100%;
+  color: var(--tinta); background: #fff;
+  border: 0; border-bottom: 1.5px solid var(--rosa); border-radius: 4px 4px 0 0;
+  background: #fff6f6;
+}
+input::placeholder { color: #c4a5ae; }
+input:focus-visible, select:focus-visible, button:focus-visible {
+  outline: 2px solid var(--oro); outline-offset: 2px;
+}
+
+.btn {
+  font: inherit; cursor: pointer; padding: .7rem 1.4rem; letter-spacing: .04em;
+  color: #fff; background: var(--rosa-polvo); border: 1px solid var(--rosa-polvo); border-radius: 4px;
+}
+.btn:hover { background: var(--ciruela); border-color: var(--ciruela); }
+.btn-sec { background: transparent; color: var(--ciruela); border-color: var(--rosa); }
+.btn-sec:hover { background: #fdeef0; color: var(--ciruela); border-color: var(--rosa-polvo); }
+
+/* Resumen: como los créditos finales */
+.resumen {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  background: var(--ciruela); color: #fdeaec;
+  border-radius: 6px; border: 1px solid var(--oro);
+  box-shadow: 0 10px 30px rgba(74, 34, 51, .18);
+}
+.resumen div { padding: 1.3rem 1.4rem; display: grid; text-align: center; border-right: 1px solid rgba(201, 162, 122, .35); }
+.resumen div:last-child { border-right: 0; }
+.resumen span { font-family: "Gowun Batang", Georgia, serif; font-size: 2rem; font-weight: 700; color: #ffd9de; }
+.resumen small { color: #d9b4bb; }
+.resumen .alerta span { color: #ffb3c1; }
+
+.lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.25rem; }
+.producto {
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-top: 4px solid var(--ok);
+  border-radius: 4px 4px 6px 6px;
+  padding: 1.2rem 1.3rem;
+  display: grid; gap: .3rem;
+  box-shadow: 0 8px 22px rgba(74, 34, 51, .07);
+}
+.producto.bajo { border-top-color: var(--bajo); }
+.producto.agotado { border-top-color: var(--agotado); }
+.producto h3 { margin: 0; font-family: "Gowun Batang", Georgia, serif; font-size: 1.15rem; color: var(--ciruela); }
+.producto .cat { color: var(--suave); font-size: .88rem; font-style: italic; }
+.producto .precio { margin-top: .4rem; font-family: "Gowun Batang", Georgia, serif; font-size: 1.45rem; color: var(--rosa-polvo); }
+.producto .fila { display: flex; justify-content: space-between; align-items: center; gap: .5rem; padding-top: .5rem; border-top: 1px dotted var(--linea); }
+.estado { font-size: .88rem; color: var(--ok); }
+.bajo .estado { color: var(--bajo); }
+.agotado .estado { color: var(--agotado); }
+.borrar { background: none; border: 0; padding: 0; cursor: pointer; font: inherit; font-size: .85rem; color: var(--suave); text-decoration: underline; }
+.borrar:hover { color: var(--agotado); }
+.vacio {
+  grid-column: 1 / -1; padding: 2.4rem; text-align: center; color: var(--suave);
+  font-family: "Gowun Batang", Georgia, serif; font-style: italic;
+  border: 1px dashed var(--rosa); border-radius: 6px; background: rgba(255, 250, 247, .6);
+}
+
+@media (max-width: 560px) {
+  .resumen div { border-right: 0; border-bottom: 1px solid rgba(201, 162, 122, .35); }
+  .resumen div:last-child { border-bottom: 0; }
+}
